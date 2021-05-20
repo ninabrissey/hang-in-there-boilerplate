@@ -99,13 +99,23 @@ var quotes = [
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
 var savedPosters = [];
-var currentPoster;
+
+var currentPoster = {
+
+};
+
+currentPoster = new Poster('', '', '')
 
 // event listeners go here 👇
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
-function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length);
-}
+function getRandomPoster(quotes, images, titles) {
+  currentPoster.quote = quotes[Math.floor(Math.random() * quotes.length)];
+  currentPoster.title = titles[Math.floor(Math.random() * titles.length)];
+  currentPoster.imageURL = images[Math.floor(Math.random() * images.length)];
+};
 
+getRandomQuote(quotes, images, titles);
+
+// Did first pull request and merged, we believe, accidentally to feature/populate-poster-quote
