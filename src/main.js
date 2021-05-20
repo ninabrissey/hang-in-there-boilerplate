@@ -1,4 +1,9 @@
 // query selector variables go here 👇
+var posterImage = document.querySelector('.poster-img');
+
+var posterTitle = document.querySelector('.poster-title');
+
+var posterQuote = document.querySelector('.poster-quote');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -104,18 +109,41 @@ var currentPoster = {
 
 };
 
-currentPoster = new Poster('', '', '')
+//currentPoster = new Poster('', '', '')
 
 // event listeners go here 👇
+window.addEventListener('load', makeRandomPoster) {
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
-function getRandomPoster(quotes, images, titles) {
-  currentPoster.quote = quotes[Math.floor(Math.random() * quotes.length)];
-  currentPoster.title = titles[Math.floor(Math.random() * titles.length)];
-  currentPoster.imageURL = images[Math.floor(Math.random() * images.length)];
+function getRandomIndex(array) {
+
+return Math.floor(Math.random() * array.length);
+  //currentPoster.quote = quotes[Math.floor(Math.random() * quotes.length)];
+  //currentPoster.title = titles[Math.floor(Math.random() * titles.length)];
+  //currentPoster.imageURL = images[Math.floor(Math.random() * images.length)];
 };
 
-getRandomQuote(quotes, images, titles);
+function makeRandomPoster() {
+  posterImage.src = images[getRandomIndex(images)]
+  posterTitle.innerText = titles[getRandomIndex(titles)]
+  posterQuote.innerText = quotes(getRandomIndex(quotes)]
+}
+
+}
+
+
+// function getPosterImage() {
+//
+//   posterImage.src = currentPoster.imageURL;
+//   posterImage.alt = currentPoster.imageURL;
+//   posterTitle.innerText = currentPoster.title;
+//   posterQuote.innerText = currentPoster.quote;
+//   getRandomPoster();
+//
+//   }
+};
+
+
 
 // Did first pull request and merged, we believe, accidentally to feature/populate-poster-quote
