@@ -112,7 +112,8 @@ var currentPoster = {
 //currentPoster = new Poster('', '', '')
 
 // event listeners go here 👇
-window.addEventListener('load', makeRandomPoster) {
+// window.addEventListener('load', makeRandomPoster);
+window.onload(makeRandomPoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -125,12 +126,11 @@ return Math.floor(Math.random() * array.length);
 };
 
 function makeRandomPoster() {
-  posterImage.src = images[getRandomIndex(images)]
-  posterTitle.innerText = titles[getRandomIndex(titles)]
-  posterQuote.innerText = quotes(getRandomIndex(quotes)]
+  posterImage.src = images[getRandomIndex(images)];
+  posterTitle.innerText = titles[getRandomIndex(titles)];
+  posterQuote.innerText = quotes[getRandomIndex(quotes)];
 }
 
-}
 
 
 // function getPosterImage() {
@@ -142,7 +142,6 @@ function makeRandomPoster() {
 //   getRandomPoster();
 //
 //   }
-};
 
 
 
