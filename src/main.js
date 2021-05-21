@@ -7,6 +7,12 @@ var posterQuote = document.querySelector('.poster-quote');
 
 var buttonMakeRandomPoster = document.querySelector('.show-random')
 
+var buttonMakeYourOwnPoster = document.querySelector('.show-form')
+
+var mainPage = document.querySelector('.main-poster')
+
+var posterForm = document.querySelector('.poster-form')
+
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -116,6 +122,7 @@ var currentPoster = {
 // event listeners go here 👇
 window.addEventListener('load', makeRandomPoster);
 buttonMakeRandomPoster.addEventListener('click', makeRandomPoster);
+buttonMakeYourOwnPoster.addEventListener('click', makeYourOwnPoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -131,7 +138,14 @@ function makeRandomPoster() {
   posterImage.src = images[getRandomIndex(images)];
   posterTitle.innerText = titles[getRandomIndex(titles)];
   posterQuote.innerText = quotes[getRandomIndex(quotes)];
-}
+};
+
+function makeYourOwnPoster() {
+  if (posterForm.classList.contains('hidden')) {
+  posterForm.classList.remove('hidden');
+  mainPage.classList.add('hidden');
+  };
+};
 
 
 
