@@ -133,6 +133,7 @@ buttonMakeRandomPoster.addEventListener('click', makeRandomPoster);
 buttonMakeYourOwnPoster.addEventListener('click', makeYourOwnPoster);
 buttonShowSavedPosters.addEventListener('click', showSavedPosters);
 buttonSavedBackToMain.addEventListener('click', savedBackToMain);
+buttonFormShowMain.addEventListener('click', takeMeBack);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -167,12 +168,18 @@ function showSavedPosters() {
 function savedBackToMain() {
   if (mainPage.classList.contains('hidden')) {
     mainPage.classList.remove('hidden');
-    showSavedPage.classlist.add('hidden')
+    showSavedPage.classlist.add('hidden');
+  };
+};
+
+function takeMeBack() {
+  if (mainPage.classList.contains('hidden')) {
+    mainPage.classList.remove('hidden');
+    posterFormPage.classList.add('hidden');
   };
 };
 
 
-//var buttonSavedBackToMain = document.querySelector('.back-to-main')
 //var buttonFormShowMain = document.querySelector('.show-main')
 
 //When a user clicks the “Nevermind, take me back!” or “Back to Main” buttons, we should only see the main poster section
