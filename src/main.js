@@ -5,6 +5,8 @@ var posterTitle = document.querySelector('.poster-title');
 
 var posterQuote = document.querySelector('.poster-quote');
 
+var buttonMakeRandomPoster = document.querySelector('.show-random')
+
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -112,8 +114,8 @@ var currentPoster = {
 //currentPoster = new Poster('', '', '')
 
 // event listeners go here 👇
-// window.addEventListener('load', makeRandomPoster);
-window.onload(makeRandomPoster);
+window.addEventListener('load', makeRandomPoster);
+buttonMakeRandomPoster.addEventListener('click', makeRandomPoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
