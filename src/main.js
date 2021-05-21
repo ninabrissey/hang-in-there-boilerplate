@@ -5,13 +5,17 @@ var posterTitle = document.querySelector('.poster-title');
 
 var posterQuote = document.querySelector('.poster-quote');
 
-var buttonMakeRandomPoster = document.querySelector('.show-random')
+var buttonMakeRandomPoster = document.querySelector('.show-random');
 
-var buttonMakeYourOwnPoster = document.querySelector('.show-form')
+var buttonMakeYourOwnPoster = document.querySelector('.show-form');
 
-var mainPage = document.querySelector('.main-poster')
+var buttonShowSavedPosters = document.querySelector('.show-saved');
 
-var posterForm = document.querySelector('.poster-form')
+var mainPage = document.querySelector('.main-poster');
+
+var posterFormPage = document.querySelector('.poster-form');
+
+var showSavedPage = document.querySelector('.saved-posters');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -123,13 +127,14 @@ var currentPoster = {
 window.addEventListener('load', makeRandomPoster);
 buttonMakeRandomPoster.addEventListener('click', makeRandomPoster);
 buttonMakeYourOwnPoster.addEventListener('click', makeYourOwnPoster);
+buttonShowSavedPosters.addEventListener('click', showSavedPosters);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
 function getRandomIndex(array) {
 
 return Math.floor(Math.random() * array.length);
-  //currentPoster.quote = quotes[Math.floor(Math.random() * quotes.length)];
+  //currentPoster.quote = quotes[Math.floor(Math.random() * quotes.length)];git checkout
   //currentPoster.title = titles[Math.floor(Math.random() * titles.length)];
   //currentPoster.imageURL = images[Math.floor(Math.random() * images.length)];
 };
@@ -141,12 +146,21 @@ function makeRandomPoster() {
 };
 
 function makeYourOwnPoster() {
-  if (posterForm.classList.contains('hidden')) {
-  posterForm.classList.remove('hidden');
+  if (posterFormPage.classList.contains('hidden')) {
+  posterFormPage.classList.remove('hidden');
   mainPage.classList.add('hidden');
   };
 };
 
+function showSavedPosters() {
+  if (showSavedPage.classList.contains('hidden')) {
+    showSavedPage.classList.remove('hidden');
+    mainPage.classList.add('hidden');
+  }
+};
+
+// When a user clicks the “View Saved Posters” button
+// we should see the saved posters area, and the main poster should be hidden
 
 
 // function getPosterImage() {
@@ -158,7 +172,3 @@ function makeYourOwnPoster() {
 //   getRandomPoster();
 //
 //   }
-
-
-
-// Did first pull request and merged, we believe, accidentally to feature/populate-poster-quote
