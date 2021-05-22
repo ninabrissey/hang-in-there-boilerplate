@@ -144,6 +144,7 @@ buttonSavedBackToMain.addEventListener('click', savedBackToMain);
 buttonFormShowMain.addEventListener('click', takeMeBack);
 buttonShowMyPoster.addEventListener('click', showYourOwnPoster);
 
+
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
 
@@ -169,7 +170,7 @@ function makeYourOwnPoster() {
 };
 
 function showSavedPosters() {
-  if (showSavedPage.classList.contains('hidden')) {
+ if (showSavedPage.classList.contains('hidden')) {
     showSavedPage.classList.remove('hidden');
     mainPage.classList.add('hidden');
   };
@@ -178,7 +179,7 @@ function showSavedPosters() {
 function savedBackToMain() {
   if (mainPage.classList.contains('hidden')) {
     mainPage.classList.remove('hidden');
-    showSavedPage.classlist.add('hidden');
+    showSavedPage.classList.add('hidden');
   };
 };
 
@@ -204,6 +205,18 @@ function showYourOwnPoster () {
     takeMeBack();
 
   };
+
+
+
+
+
+
+  // When the save button is clicked, several things will happen:
+  // XXXX Save the submitted data into the respective arrays (image URL into the images array, etc)
+  // XXXX so that future random posters can use the user-created data
+  // Use the values from the inputs to create a new instance of our Poster class
+  // Change back to the main poster view (hiding the form view again)
+  // Display the newly created poster image, title, and quote in the main view
 
 
 
