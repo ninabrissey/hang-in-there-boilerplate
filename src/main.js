@@ -11,15 +11,23 @@ var buttonMakeYourOwnPoster = document.querySelector('.show-form');
 
 var buttonShowSavedPosters = document.querySelector('.show-saved');
 
-var buttonSavedBackToMain = document.querySelector('.back-to-main')
+var buttonSavedBackToMain = document.querySelector('.back-to-main');
 
-var buttonFormShowMain = document.querySelector('.show-main')
+var buttonFormShowMain = document.querySelector('.show-main');
 
 var mainPage = document.querySelector('.main-poster');
 
 var posterFormPage = document.querySelector('.poster-form');
 
 var showSavedPage = document.querySelector('.saved-posters');
+
+var buttonShowMyPoster = document.querySelector('.make-poster');
+
+var userInputImage = document.querySelector('#poster-image-url');
+
+var userInputTitle = document.querySelector('#poster-title');
+
+var userInputQuote = document.querySelector('#poster-quote');
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -134,13 +142,14 @@ buttonMakeYourOwnPoster.addEventListener('click', makeYourOwnPoster);
 buttonShowSavedPosters.addEventListener('click', showSavedPosters);
 buttonSavedBackToMain.addEventListener('click', savedBackToMain);
 buttonFormShowMain.addEventListener('click', takeMeBack);
+buttonShowMyPoster.addEventListener('click', showYourOwnPoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
-function getRandomIndex(array) {
 
+function getRandomIndex(array) {
 return Math.floor(Math.random() * array.length);
-  //currentPoster.quote = quotes[Math.floor(Math.random() * quotes.length)];git checkout
+  //currentPoster.quote = quotes[Math.floor(Math.random() * quotes.length)];
   //currentPoster.title = titles[Math.floor(Math.random() * titles.length)];
   //currentPoster.imageURL = images[Math.floor(Math.random() * images.length)];
 };
@@ -155,6 +164,7 @@ function makeYourOwnPoster() {
   if (posterFormPage.classList.contains('hidden')) {
   posterFormPage.classList.remove('hidden');
   mainPage.classList.add('hidden');
+  document.querySelector('form').reset();
   };
 };
 
@@ -179,10 +189,23 @@ function takeMeBack() {
   };
 };
 
+function showYourOwnPoster () {
+  event.preventDefault();
+  currentPoster = new Poster(userInputImage.value, userInputTitle.value, userInputQuote.value)
 
-//var buttonFormShowMain = document.querySelector('.show-main')
+    posterImage.src = userInputImage.value;
+    posterTitle.innerText = userInputTitle.value;
+    posterQuote.innerText = userInputQuote.value;
+    // possibly in another function for .push below
+    images.push(userInputImage.value);
+    titles.push(userInputTitle.value);
+    quotes.push(userInputQuote.value);
 
-//When a user clicks the “Nevermind, take me back!” or “Back to Main” buttons, we should only see the main poster section
+    takeMeBack();
+
+  };
+
+
 
 // function getPosterImage() {
 //
