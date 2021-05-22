@@ -15,13 +15,15 @@ var buttonSavedBackToMain = document.querySelector('.back-to-main');
 
 var buttonFormShowMain = document.querySelector('.show-main');
 
+var buttonSavePoster = document.querySelector('.save-poster');
+
+var buttonShowMyPoster = document.querySelector('.make-poster');
+
 var mainPage = document.querySelector('.main-poster');
 
 var posterFormPage = document.querySelector('.poster-form');
 
 var showSavedPage = document.querySelector('.saved-posters');
-
-var buttonShowMyPoster = document.querySelector('.make-poster');
 
 var userInputImage = document.querySelector('#poster-image-url');
 
@@ -143,6 +145,7 @@ buttonShowSavedPosters.addEventListener('click', showSavedPosters);
 buttonSavedBackToMain.addEventListener('click', savedBackToMain);
 buttonFormShowMain.addEventListener('click', takeMeBack);
 buttonShowMyPoster.addEventListener('click', showYourOwnPoster);
+buttonSavePoster.addEventListener('click', savePoster);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -158,6 +161,7 @@ function makeRandomPoster() {
   posterImage.src = images[getRandomIndex(images)];
   posterTitle.innerText = titles[getRandomIndex(titles)];
   posterQuote.innerText = quotes[getRandomIndex(quotes)];
+  currentPoster = new Poster(posterImage.src, posterTitle.innerText, posterQuote.innerText);
 };
 
 function makeYourOwnPoster() {
@@ -169,7 +173,7 @@ function makeYourOwnPoster() {
 };
 
 function showSavedPosters() {
-  if (showSavedPage.classList.contains('hidden')) {
+ if (showSavedPage.classList.contains('hidden')) {
     showSavedPage.classList.remove('hidden');
     mainPage.classList.add('hidden');
   };
@@ -178,7 +182,7 @@ function showSavedPosters() {
 function savedBackToMain() {
   if (mainPage.classList.contains('hidden')) {
     mainPage.classList.remove('hidden');
-    showSavedPage.classlist.add('hidden');
+    showSavedPage.classList.add('hidden');
   };
 };
 
@@ -191,19 +195,34 @@ function takeMeBack() {
 
 function showYourOwnPoster () {
   event.preventDefault();
-  currentPoster = new Poster(userInputImage.value, userInputTitle.value, userInputQuote.value)
 
     posterImage.src = userInputImage.value;
     posterTitle.innerText = userInputTitle.value;
     posterQuote.innerText = userInputQuote.value;
-    // possibly in another function for .push below
+
     images.push(userInputImage.value);
     titles.push(userInputTitle.value);
     quotes.push(userInputQuote.value);
 
-    takeMeBack();
+    currentPoster = new Poster(userInputImage.value, userInputTitle.value, userInputQuote.value);
 
+    takeMeBack();
   };
+
+function savePoster() {
+  if (!savedPosters.includes(currentPoster)){
+  savedPosters.push(currentPoster);
+
+ };
+};
+
+
+
+
+// XXXXXWhen a user clicks the “Save This Poster” button, the current main poster will be added to the savedPosters array.
+// If a user clicks the “Save This Poster” more than once on a single poster, it will still only be saved once (no duplicates)
+// When a user clicks the “Show Saved Posters” button, we should see the saved posters section
+// All the posters in the savedPosters array should be displayed in the saved posters grid section
 
 
 
