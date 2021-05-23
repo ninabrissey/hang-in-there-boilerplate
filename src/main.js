@@ -31,6 +31,16 @@ var userInputTitle = document.querySelector('#poster-title');
 
 var userInputQuote = document.querySelector('#poster-quote');
 
+var savedGrid = document.querySelector('.saved-posters-grid');
+
+// var miniPoster = document.querySelector('.mini-poster');
+//
+// var saveImage = "";
+//
+// var saveTitle = "";
+//
+// var saveQuote = "";
+
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -146,6 +156,7 @@ buttonSavedBackToMain.addEventListener('click', savedBackToMain);
 buttonFormShowMain.addEventListener('click', takeMeBack);
 buttonShowMyPoster.addEventListener('click', showYourOwnPoster);
 buttonSavePoster.addEventListener('click', savePoster);
+buttonRemovePoster.addEventListener('click', removeElement);
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -162,6 +173,8 @@ function makeRandomPoster() {
   posterTitle.innerText = titles[getRandomIndex(titles)];
   posterQuote.innerText = quotes[getRandomIndex(quotes)];
   currentPoster = new Poster(posterImage.src, posterTitle.innerText, posterQuote.innerText);
+
+
 };
 
 function makeYourOwnPoster() {
@@ -176,7 +189,11 @@ function showSavedPosters() {
  if (showSavedPage.classList.contains('hidden')) {
     showSavedPage.classList.remove('hidden');
     mainPage.classList.add('hidden');
+    displaySavedPoster();
   };
+
+  // addMiniPosterElement(miniPoster);
+  // saveToGrid();
 };
 
 function savedBackToMain() {
@@ -212,26 +229,41 @@ function showYourOwnPoster () {
 function savePoster() {
   if (!savedPosters.includes(currentPoster)){
   savedPosters.push(currentPoster);
-
+//  saveToGrid(currentPoster.imageURL, currentPoster.title, currentPoster.quote);
  };
 };
 
+function displaySavedPoster() {
+  savedGrid.innerHTML = "";
+  for (var i = 0; i < savedPosters.length; i++) {
+    var savedPosterObject = savedPosters[i];
+    savedGrid.innerHTML +=
+    `<section class="mini-poster" id=${savedPosterObject.id}>
+      <img id=${savedPosterObject.id} src=${savedPosterObject.imageURL}>
+      <h2 id=${savedPosterObject.id}>${savedPosterObject.title}</h2>
+      <h4 id=${savedPosterObject.id}>${savedPosterObject.quote}</h4>
+    </section>`
+  }
+}
 
-
-
-// XXXXXWhen a user clicks the “Save This Poster” button, the current main poster will be added to the savedPosters array.
-// If a user clicks the “Save This Poster” more than once on a single poster, it will still only be saved once (no duplicates)
-// When a user clicks the “Show Saved Posters” button, we should see the saved posters section
-// All the posters in the savedPosters array should be displayed in the saved posters grid section
-
-
-
-// function getPosterImage() {
+// function deleteSavedPoster(){
+//   savedGrid.innerHTML = "";
+//   for (var i = 0; i < savedPosters.length; i++) {
+//     var savedPosterObject = savedPosters[i];
+//     if savedPosterObject
+//     savedPosterObject.id.splice(i, 1)
 //
-//   posterImage.src = currentPoster.imageURL;
-//   posterImage.alt = currentPoster.imageURL;
-//   posterTitle.innerText = currentPoster.title;
-//   posterQuote.innerText = currentPoster.quote;
-//   getRandomPoster();
+//     savePosterObject.remove(savedPosterObject.id);
 //
-//   }
+
+
+function removeElement() {
+    //  var  = document.getElementById("demo");
+  //  for (var i = 0; i < savedPosters.length; i++) {
+      var savedPosterObject = savedPosters[i];
+      savedPosterObject.remove(i);
+    }
+
+//
+// [ ]  From the saved posters view, if a user double clicks a saved poster, it will be deleted
+// [ ]  *Hint: How will you update the data model to achieve this?*
