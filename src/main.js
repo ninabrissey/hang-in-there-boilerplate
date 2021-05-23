@@ -140,12 +140,11 @@ buttonSavedBackToMain.addEventListener('click', savedBackToMain);
 buttonSavePoster.addEventListener('click', savePoster);
 buttonShowMyPoster.addEventListener('click', showYourOwnPoster);
 buttonShowSavedPosters.addEventListener('click', showSavedPosters);
-showSavedPage.addEventListener('dblclick', removeElement)
+showSavedPage.addEventListener('dblclick', removeElement);
 
 // functions and event handlers go here 👇
-
 function getRandomIndex(array) {
-return Math.floor(Math.random() * array.length);
+  return Math.floor(Math.random() * array.length);
 };
 
 function makeRandomPoster() {
@@ -187,24 +186,21 @@ function takeMeBack() {
 
 function showYourOwnPoster () {
   event.preventDefault();
+  posterImage.src = userInputImage.value;
+  posterTitle.innerText = userInputTitle.value;
+  posterQuote.innerText = userInputQuote.value;
+  images.push(userInputImage.value);
+  titles.push(userInputTitle.value);
+  quotes.push(userInputQuote.value);
+  currentPoster = new Poster(userInputImage.value, userInputTitle.value, userInputQuote.value);
 
-    posterImage.src = userInputImage.value;
-    posterTitle.innerText = userInputTitle.value;
-    posterQuote.innerText = userInputQuote.value;
-
-    images.push(userInputImage.value);
-    titles.push(userInputTitle.value);
-    quotes.push(userInputQuote.value);
-
-    currentPoster = new Poster(userInputImage.value, userInputTitle.value, userInputQuote.value);
-
-    takeMeBack();
-  };
+  takeMeBack();
+};
 
 function savePoster() {
-  if (!savedPosters.includes(currentPoster)){
-  savedPosters.push(currentPoster);
- };
+  if (!savedPosters.includes(currentPoster)) {
+    savedPosters.push(currentPoster);
+  };
 };
 
 function displaySavedPoster() {
@@ -216,10 +212,8 @@ function displaySavedPoster() {
     <h2>${savedPosters[i].title}</h2>
     <h4>${savedPosters[i].quote}</h4>
     </section>`
-  }
-}
-
-
+  };
+};
 
 function removeElement() {
   var clickedMiniPoster = event.target.closest('.mini-poster');
@@ -227,6 +221,6 @@ function removeElement() {
      if (savedPosters[i].id === Number(clickedMiniPoster.id)) {
        savedPosters.splice(i, 1);
        displaySavedPoster();
-      };
     };
   };
+};
