@@ -28,6 +28,10 @@ var userInputQuote = document.querySelector('#poster-quote');
 var savedGrid = document.querySelector('.saved-posters-grid');
 var miniPoster = document.querySelector('.mini-poster');
 
+// project given variables
+var savedPosters = [];
+var currentPoster = {};
+
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -126,27 +130,19 @@ var quotes = [
   "Each person must live their life as a model for others.",
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
-var savedPosters = [];
-
-var currentPoster = {
-
-};
-
-//currentPoster = new Poster('', '', '')
 
 // event listeners go here 👇
 window.addEventListener('load', makeRandomPoster);
+buttonFormShowMain.addEventListener('click', takeMeBack);
 buttonMakeRandomPoster.addEventListener('click', makeRandomPoster);
 buttonMakeYourOwnPoster.addEventListener('click', makeYourOwnPoster);
-buttonShowSavedPosters.addEventListener('click', showSavedPosters);
 buttonSavedBackToMain.addEventListener('click', savedBackToMain);
-buttonFormShowMain.addEventListener('click', takeMeBack);
-buttonShowMyPoster.addEventListener('click', showYourOwnPoster);
 buttonSavePoster.addEventListener('click', savePoster);
+buttonShowMyPoster.addEventListener('click', showYourOwnPoster);
+buttonShowSavedPosters.addEventListener('click', showSavedPosters);
 showSavedPage.addEventListener('dblclick', removeElement)
 
 // functions and event handlers go here 👇
-// (we've provided one for you to get you started)!
 
 function getRandomIndex(array) {
 return Math.floor(Math.random() * array.length);
