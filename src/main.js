@@ -150,7 +150,7 @@ buttonSavedBackToMain.addEventListener('click', savedBackToMain);
 buttonFormShowMain.addEventListener('click', takeMeBack);
 buttonShowMyPoster.addEventListener('click', showYourOwnPoster);
 buttonSavePoster.addEventListener('click', savePoster);
-showSavedPage.addEventListener('dblclick', removeElement)
+showSavedPage.addEventListener('dblclick', removePoster)
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
@@ -232,7 +232,7 @@ function displaySavedPoster() {
 
 
 
-function removeElement() {
+function removePoster() {
   var clickedMiniPoster = event.target.closest('.mini-poster');
    for (var i = 0; i < savedPosters.length; i++) {
      if (savedPosters[i].id === Number(clickedMiniPoster.id)) {
