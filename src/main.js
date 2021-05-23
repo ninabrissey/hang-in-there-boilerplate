@@ -1,38 +1,31 @@
 // query selector variables go here 👇
+
+// Poster properties:
 var posterImage = document.querySelector('.poster-img');
-
 var posterTitle = document.querySelector('.poster-title');
-
 var posterQuote = document.querySelector('.poster-quote');
 
+// button variables:
+var buttonFormShowMain = document.querySelector('.show-main');
 var buttonMakeRandomPoster = document.querySelector('.show-random');
-
 var buttonMakeYourOwnPoster = document.querySelector('.show-form');
-
+var buttonSavedBackToMain = document.querySelector('.back-to-main');
+var buttonSavePoster = document.querySelector('.save-poster');
+var buttonShowMyPoster = document.querySelector('.make-poster');
 var buttonShowSavedPosters = document.querySelector('.show-saved');
 
-var buttonSavedBackToMain = document.querySelector('.back-to-main');
-
-var buttonFormShowMain = document.querySelector('.show-main');
-
-var buttonSavePoster = document.querySelector('.save-poster');
-
-var buttonShowMyPoster = document.querySelector('.make-poster');
-
+// page variables:
 var mainPage = document.querySelector('.main-poster');
-
 var posterFormPage = document.querySelector('.poster-form');
-
 var showSavedPage = document.querySelector('.saved-posters');
 
+// user Poster properties:
 var userInputImage = document.querySelector('#poster-image-url');
-
 var userInputTitle = document.querySelector('#poster-title');
-
 var userInputQuote = document.querySelector('#poster-quote');
 
+// mini-poster class selectors
 var savedGrid = document.querySelector('.saved-posters-grid');
-
 var miniPoster = document.querySelector('.mini-poster');
 
 // we've provided you with some data to work with 👇
