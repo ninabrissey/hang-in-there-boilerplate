@@ -154,34 +154,50 @@ function makeRandomPoster() {
   currentPoster = new Poster(posterImage.src, posterTitle.innerText, posterQuote.innerText);
 };
 
-function makeYourOwnPoster() {
-  if (posterFormPage.classList.contains('hidden')) {
-  posterFormPage.classList.remove('hidden');
+function hideMainPage() {
   mainPage.classList.add('hidden');
+};
+
+function showMainPage() {
+  mainPage.classList.remove('hidden');
+};
+
+function hidePosterFormPage() {
+  posterFormPage.classList.add('hidden');
+};
+
+function showPosterFormPage() {
+  posterFormPage.classList.remove('hidden');
+};
+
+function hideSavedPosterPage() {
+  showSavedPage.classList.add('hidden');
+};
+
+function showSavedPosterPage() {
+  showSavedPage.classList.remove('hidden');
+};
+
+function makeYourOwnPoster() {
+  showPosterFormPage()
+  hideMainPage();
   document.querySelector('form').reset();
-  };
 };
 
 function showSavedPosters() {
- if (showSavedPage.classList.contains('hidden')) {
-    showSavedPage.classList.remove('hidden');
-    mainPage.classList.add('hidden');
+    showSavedPosterPage();
+    hideMainPage();
     displaySavedPoster();
-  };
 };
 
 function savedBackToMain() {
-  if (mainPage.classList.contains('hidden')) {
-    mainPage.classList.remove('hidden');
-    showSavedPage.classList.add('hidden');
-  };
+    showMainPage();
+    hideSavedPosterPage();
 };
 
 function takeMeBack() {
-  if (mainPage.classList.contains('hidden')) {
-    mainPage.classList.remove('hidden');
-    posterFormPage.classList.add('hidden');
-  };
+    showMainPage();
+    hidePosterFormPage()
 };
 
 function showYourOwnPoster () {
