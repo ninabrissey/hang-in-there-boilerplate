@@ -140,7 +140,7 @@ buttonSavedBackToMain.addEventListener('click', savedBackToMain);
 buttonSavePoster.addEventListener('click', savePoster);
 buttonShowMyPoster.addEventListener('click', showYourOwnPoster);
 buttonShowSavedPosters.addEventListener('click', showSavedPosters);
-showSavedPage.addEventListener('dblclick', removeElement);
+showSavedPage.addEventListener('dblclick', removePoster)
 
 // functions and event handlers go here 👇
 function getRandomIndex(array) {
@@ -231,7 +231,7 @@ function displaySavedPoster() {
   };
 };
 
-function removeElement() {
+function removePoster() {
   var clickedMiniPoster = event.target.closest('.mini-poster');
    for (var i = 0; i < savedPosters.length; i++) {
      if (savedPosters[i].id === Number(clickedMiniPoster.id)) {
